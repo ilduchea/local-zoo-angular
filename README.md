@@ -19,7 +19,6 @@
 
 1. Specs
   * Use Bootstrap for base styling.
-  * Create a timestamp when a new animal is entered.
   * Animal model.
     * Base
       * Species - string
