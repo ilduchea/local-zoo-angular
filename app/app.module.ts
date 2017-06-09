@@ -3,12 +3,14 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
 import { ListAnimalsComponent } from './list-animals.component';
+import { AnimalDetailComponent } from './animal-detail.component'
 
 @NgModule({
   imports: [BrowserModule, FormsModule],
-  declarations: [ 
+  declarations: [
     AppComponent,
-    ListAnimalsComponent
+    ListAnimalsComponent,
+    AnimalDetailComponent
   ],
   bootstrap:    [ AppComponent ]
 })

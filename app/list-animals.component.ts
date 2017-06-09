@@ -12,7 +12,7 @@ import { Animal } from './animal.model';
     </select>
     <ul>
       <li class="row" *ngFor="let animal of animals; let i=index">
-        <!-- <animal-detail [animalDetail]="animal" [animalIndex]="i"></animal-detail> -->
+        <animal-detail [animalDetail]="animal" [animalIndex]="i"></animal-detail>
       </li>
     </ul>
   `
