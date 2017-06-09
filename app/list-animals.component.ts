@@ -12,7 +12,7 @@ import { Animal } from './animal.model';
     </select>
     <ul>
       <li class="row" *ngFor="let animal of animals; let i=index">
-        <animal-detail [animalDetail]="animal" [animalIndex]="i"></animal-detail>
+        <animal-detail [animalDetail]="animal" [animalIndex]="i" (removeAnimalSender)="removeAnimal($event)"></animal-detail>
       </li>
     </ul>
   `
@@ -20,8 +20,14 @@ import { Animal } from './animal.model';
 
 export class ListAnimalsComponent {
   @Input() animals: Animal[];
+  @Output() removeAnimalSender = new EventEmitter();
+
   sortByOption: string = "all";
 
+  removeAnimal(i: number) {
+    this.removeAnimalSender.emit(i);
+  }
+  
   sortSelector(sortOption: string) {
     this.sortByOption = sortOption;
   }

@@ -18,11 +18,20 @@ import { Animal } from './animal.model';
       </ul>
     </div>
 
+    <div class="col-md-6">
+      <!-- <edit-animal [editAnimal]="animalDetail"></edit-animal> -->
+      <button class="btn btn-danger" (click)="removeAnimal(animalIndex)">Remove</button>
+    </div>
   `
 })
 
 export class AnimalDetailComponent {
   @Input() animalDetail: Animal;
   @Input() animalIndex: number;
+  @Output() removeAnimalSender = new EventEmitter();
+
+  removeAnimal(i: number) {
+    this.removeAnimalSender.emit(i);
+  }
 
 }

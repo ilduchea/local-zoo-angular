@@ -10,8 +10,8 @@ import { Animal } from './animal.model'
       </div>
 
       <div class="row">
-        <button class="btn" *ngIf="!showNewAnimalForm" (click)="showNewAnimal()">New Animal</button>
-        <list-animals *ngIf="!showNewAnimalForm" [animals]="masterAnimalList"></list-animals>
+        <button class="btn float-right" (click)="showNewAnimalForm = !showNewAnimalForm">{{showNewAnimalForm? "Back": "New Animal"}}</button>
+        <list-animals *ngIf="!showNewAnimalForm" [animals]="masterAnimalList" (removeAnimalSender)="removeAnimal($event)"></list-animals>
         <new-animal *ngIf="showNewAnimalForm" (newAnimalSender)="addAnimal($event)"></new-animal>
       </div>
 
@@ -28,13 +28,13 @@ export class AppComponent {
 
   showNewAnimalForm: boolean = false;
 
-  showNewAnimal() {
-    this.showNewAnimalForm = true;
-  }
-
   addAnimal(newAnimal: Animal) {
     this.masterAnimalList.push(newAnimal)
     this.showNewAnimalForm = false;
+  }
+
+  removeAnimal(i: number) {
+    this.masterAnimalList.splice(i, 1);
   }
 
 }
