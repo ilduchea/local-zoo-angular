@@ -10,5 +10,5 @@ export class Animal {
     public sex: string,
     public likes: string[],
     public dislikes: string[],
-  )
+  ){}
 }

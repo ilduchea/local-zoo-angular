@@ -9,8 +9,8 @@ import { Animal } from './animal.model'
         <h1>local-zoo</h1>
       </div>
 
-      <list-animals></list-animals>
-      <new-animal></new-animal>
+      <list-animals [animals]="masterAnimalList"></list-animals>
+      <!-- <new-animal></new-animal> -->
 
     </div>
   `
