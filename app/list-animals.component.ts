@@ -11,7 +11,7 @@ import { Animal } from './animal.model';
       <option value="mature">Mature</option>
     </select>
     <ul>
-      <li class="row" *ngFor="let animal of animals; let i=index">
+      <li class="row" *ngFor="let animal of animals | sort:sortByOption; let i=index">
         <animal-detail [animalDetail]="animal" [animalIndex]="i" (removeAnimalSender)="removeAnimal($event)"></animal-detail>
       </li>
     </ul>
@@ -27,7 +27,7 @@ export class ListAnimalsComponent {
   removeAnimal(i: number) {
     this.removeAnimalSender.emit(i);
   }
-  
+
   sortSelector(sortOption: string) {
     this.sortByOption = sortOption;
   }
