@@ -19,7 +19,7 @@ import { Animal } from './animal.model';
     </div>
 
     <div class="col-md-6">
-      <!-- <edit-animal [editAnimal]="animalDetail"></edit-animal> -->
+      <edit-animal *ngIf="showDetails" [editAnimal]="animalDetail"></edit-animal>
       <button class="btn btn-danger" (click)="removeAnimal(animalIndex)">Remove</button>
     </div>
   `

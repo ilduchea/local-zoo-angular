@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { ListAnimalsComponent } from './list-animals.component';
 import { AnimalDetailComponent } from './animal-detail.component'
 import { NewAnimalComponent } from './new-animal.component'
+import { EditAnimalComponent } from './edit-animal.component'
 
 @NgModule({
   imports: [BrowserModule, FormsModule],
@@ -12,7 +13,8 @@ import { NewAnimalComponent } from './new-animal.component'
     AppComponent,
     ListAnimalsComponent,
     AnimalDetailComponent,
-    NewAnimalComponent
+    NewAnimalComponent,
+    EditAnimalComponent
   ],
   bootstrap:    [ AppComponent ]
 })
