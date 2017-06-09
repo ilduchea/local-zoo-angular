@@ -11,7 +11,7 @@ import { Animal } from './animal.model';
         <li>Diet: {{animalDetail.diet}}</li>
         <li>Location: {{animalDetail.location}}</li>
         <li>Caretakers: {{animalDetail.caretakers}}</li>
-        <li>Sex: {{animalDetail}.sex}</li>
+        <li>Sex: {{animalDetail.sex}}</li>
         <li>Likes: {{animalDetail.likes[0]}}</li>
         <li>Dislikes: {{animalDetail.dislikes[0]}}</li>
         <li>Joined the Zoo on: {{animalDetail.created}}</li>
