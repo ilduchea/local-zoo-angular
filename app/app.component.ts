@@ -5,8 +5,8 @@ import { Animal } from './animal.model'
   selector: 'app-root',
   template: `
     <div class="container">
-      <div class="jumbtron">
-        <h1>local-zoo</h1>
+      <div class="jumbotron">
+        <h1>Local Zoo</h1>
       </div>
 
       <list-animals [animals]="masterAnimalList"></list-animals>
