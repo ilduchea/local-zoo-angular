@@ -1,5 +1,5 @@
 export class Animal {
-  created: string = "June 09, 2017";
+  created: Date = new Date();
   constructor(
     public species: string,
     public name: string,
@@ -9,6 +9,6 @@ export class Animal {
     public caretakers: number,
     public sex: string,
     public likes: string[],
-    public dislikes: string[],
+    public dislikes: string[]
   ){}
 }

@@ -1,3 +1,13 @@
+body {
+  background: #69995D;
+  font-size: 16px;
+}
+
+.jumbotron {
+  background: #394648;
+  color: #F8E9E9;
+}
+
 ul {
   list-style: none;
 }
@@ -6,7 +16,22 @@ ul {
   float: right;
 }
 
+.col-md-2 {
+  padding: 0;
+}
+
 .container .row {
   margin-left: 0;
   margin-right: 0;
+}
+
+.std-btn, input, select {
+  margin: 5px;
+  background: #394648;
+  color: #F8E9E9;
+}
+
+.std-btn:hover {
+  background: #222;
+  color: #F8E9E9;
 }

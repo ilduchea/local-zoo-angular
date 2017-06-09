@@ -10,7 +10,7 @@ import { Animal } from './animal.model'
       </div>
 
       <div class="row">
-        <button class="btn float-right" (click)="showNewAnimalForm = !showNewAnimalForm">{{showNewAnimalForm? "Back": "New Animal"}}</button>
+        <button class="btn std-btn float-right" (click)="showNewAnimalForm = !showNewAnimalForm">{{showNewAnimalForm? "Back": "New Animal"}}</button>
         <list-animals *ngIf="!showNewAnimalForm" [animals]="masterAnimalList" (removeAnimalSender)="removeAnimal($event)"></list-animals>
         <new-animal *ngIf="showNewAnimalForm" (newAnimalSender)="addAnimal($event)"></new-animal>
       </div>
