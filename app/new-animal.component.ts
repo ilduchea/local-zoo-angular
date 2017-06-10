@@ -39,18 +39,16 @@ import { Animal } from './animal.model';
         <input #newSex>
       </div>
       <div class="row">
-        <label class="col-md-2">Likes:</label>
-        <input #newLikes>
+        <div class="row">
+          <label class="col-md-2">Likes:</label>
+        </div>
+        <item-array [items]="likes" [options]="itemArrayOptionsLike" (updateItemSender)="likesUpdate($event)"></item-array>
       </div>
       <div class="row">
         <div class="row">
           <label class="col-md-2">Dislikes:</label>
         </div>
-        <div class="row dislikes">
-          <div class="col-md-2"></div>
-          <input #newDislike>
-          <button (click)="addItem(newDislike.value, 'dislikes')" class="btn std-btn">Add</button>
-        </div>
+        <item-array [items]="dislikes" [options]="itemArrayOptionsDislike" (updateItemSender)="dislikesUpdate($event)"></item-array>
       </div>
       <button class="btn std-btn" (click)="
         createAnimal(
@@ -72,13 +70,27 @@ import { Animal } from './animal.model';
         newDislikes.value='';
       ">Add New Animal</button>
     </div>
+    <ul class="col-md-6">
+      <li>Likes:
+        <ul>
+          <li *ngFor="let like of likes">{{like}}</li>
+        </ul>
+      </li>
+      <li>Dislikes:
+        <ul>
+          <li *ngFor="let dislike of dislikes">{{dislike}}</li>
+        </ul>
+      </li>
+    </ul>
   `
 })
 
 export class NewAnimalComponent {
   @Output() newAnimalSender = new EventEmitter();
-  likes: string[] = [];
-  dislikes: string[] = [];
+  likes: string[] = [''];
+  dislikes: string[] = [''];
+  itemArrayOptionsLike: [string, boolean] = ['Like', true];
+  itemArrayOptionsDislike: [string, boolean] = ['Dislike', true];
 
   createAnimal(
     species: string,
@@ -91,7 +103,15 @@ export class NewAnimalComponent {
     likes: string,
     dislikes: string
   ){
-    var newAnimal: Animal = new Animal(species, name, age, diet, location, caretakers, sex, [likes], [dislikes]);
+    var newAnimal: Animal = new Animal(species, name, age, diet, location, caretakers, sex, this.likes, this.dislikes);
     this.newAnimalSender.emit(newAnimal);
+  }
+
+  likesUpdate(likes: string[]) {
+    this.likes = likes;
+  }
+
+  dislikesUpdate(dislikes: string[]) {
+    this.dislikes = dislikes;
   }
 }

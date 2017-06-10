@@ -41,13 +41,13 @@ import { Animal } from './animal.model';
         <div class="row">
           <label class="col-md-2">Likes:</label>
         </div>
-        <item-array [items]="editAnimal.likes" (updateItemSender)="likesUpdate($event)"></item-array>
+        <item-array [items]="editAnimal.likes" [options]="itemArrayOptionsLike" (updateItemSender)="likesUpdate($event)"></item-array>
       </div>
       <div class="row">
         <div class="row">
           <label class="col-md-2">Dislikes:</label>
         </div>
-        <item-array [items]="editAnimal.dislikes" (updateItemSender)="dislikesUpdate($event)"></item-array>
+        <item-array [items]="editAnimal.dislikes" [options]="itemArrayOptionsDislike" (updateItemSender)="dislikesUpdate($event)"></item-array>
       </div>
     </div>
     <button (click)="showEdit = !showEdit" class="btn std-btn">
@@ -61,6 +61,8 @@ import { Animal } from './animal.model';
 export class EditAnimalComponent {
   @Input() editAnimal: Animal;
   @Output() updateItemSender = new EventEmitter();
+  itemArrayOptionsLike: [string, boolean] = ['Like', false];
+  itemArrayOptionsDislike: [string, boolean] = ['Dislike', false];
 
   likesUpdate(likes: string[]) {
     this.editAnimal.likes = likes;

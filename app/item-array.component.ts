@@ -7,10 +7,10 @@ import { Animal } from './animal.model';
     <div class="row" *ngFor="let item of items; let i=index">
       <div class="col-md-2"></div>
       <input #itemValue="ngModel" [ngModel]="item">
-      <button (click)="updateItem(itemValue.value, i, 'update')" class="btn std-btn">Update</button>
+      <button (click)="updateItem(itemValue.value, i, 'update')" class="btn std-btn">{{options[1]? "Add": "Update"}} {{options[0]}}</button>
       <button (click)="updateItem(itemValue.value, i, 'delete')" class="btn btn-danger">Delete</button>
     </div>
-    <button (click)="addItem()" class="btn std-btn">Add</button>
+    <button (click)="addItem()" class="btn std-btn">Add New {{options[0]}}</button>
 
   `
 
@@ -18,6 +18,7 @@ import { Animal } from './animal.model';
 
 export class ItemArrayComponent {
   @Input() items: string[];
+  @Input() options: [string, boolean];
   @Output() updateItemSender = new EventEmitter();
 
   addItem() {
