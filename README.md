@@ -31,8 +31,8 @@
       * Likes - string
       * Dislikes - string
     * Expansion/Future
-      * Likes - as an array of strings
-      * Dislikes - as an array of strings
+      * Likes - as an array of strings !implemented
+      * Dislikes - as an array of strings !implemented
       * Created - timestamp !implemented
   * Animal functions.
     * Base
@@ -51,7 +51,7 @@
         * Diet
         * Display the number of caretakers needed for the resulting search.
         * Display the average age of the resulting search.
-      * Make likes and dislikes an array with crud functionality.
+      * Make likes and dislikes an array with crud functionality. !implemented
 2. User Stories
   * I want to log a newly-admitted animal by submitting a form with animal species, name, age, diet, zoo location, number of needed caretakers, sex, one like and one dislike.
   * I want to view a list of animals I have logged.
@@ -62,8 +62,8 @@
   * index/homepage.
     * List Animals
       * Animal Detail
-        * List Likes/Dislikes ?future
-          * Edit Likes/Dislikes ?future
+        * List Likes/Dislikes !implemented
+          * Edit Likes/Dislikes !implemented
         * Edit Animal
     * New Animal  
   * About. ?future
@@ -78,7 +78,7 @@
   * Make README awesome
 
 ### Known Bugs
-List known bugs or issues here
+No known bugs or issues.
 
 ## Support and Contact details
 * Tyler Stephenson
