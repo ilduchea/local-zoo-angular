@@ -41,23 +41,13 @@ import { Animal } from './animal.model';
         <div class="row">
           <label class="col-md-2">Likes:</label>
         </div>
-        <div class="row" *ngFor="let like of editAnimal.likes; let i=index">
-          <div class="col-md-2"></div>
-          <input name="like{{i}}" #likeValue="ngModel" [ngModel]="like">
-          <button (click)="updateItem(likeValue.value, i, 'likes')" class="btn std-btn">Update</button>
-        </div>
-        <button (click)="addItem(editAnimal.likes)" class="btn std-btn">Add Like</button>
+        <item-array [items]="editAnimal.likes" (updateItemSender)="likesUpdate($event)"></item-array>
       </div>
       <div class="row">
         <div class="row">
           <label class="col-md-2">Dislikes:</label>
         </div>
-        <div class="row" *ngFor="let dislike of editAnimal.dislikes; let i=index">
-          <div class="col-md-2"></div>
-          <input name="dislike{{i}}" #dislikeValue="ngModel" [ngModel]="dislike">
-          <button (click)="updateItem(dislikeValue.value, i, 'dislikes')" class="btn std-btn">Update</button>
-        </div>
-        <button (click)="addItem(editAnimal.dislikes)" class="btn std-btn">Add Like</button>
+        <item-array [items]="editAnimal.dislikes" (updateItemSender)="dislikesUpdate($event)"></item-array>
       </div>
     </div>
     <button (click)="showEdit = !showEdit" class="btn std-btn">
@@ -72,17 +62,13 @@ export class EditAnimalComponent {
   @Input() editAnimal: Animal;
   @Output() updateItemSender = new EventEmitter();
 
-  addItem(array: string[]) {
-    array.push('');
+  likesUpdate(likes: string[]) {
+    this.editAnimal.likes = likes;
+    this.updateItemSender.emit(this.editAnimal);
   }
 
-  updateItem(item: string, index: number, list: string) {
-    if (list === 'likes') {
-      this.editAnimal.likes.splice(index, 1, item);
-    }
-    if (list === 'dislikes') {
-      this.editAnimal.dislikes.splice(index, 1, item);
-    }
+  dislikesUpdate(dislikes: string[]) {
+    this.editAnimal.dislikes = dislikes;
     this.updateItemSender.emit(this.editAnimal);
   }
 

@@ -14,12 +14,12 @@ import { Animal } from './animal.model';
         <li>Sex: {{animalDetail.sex}}</li>
         <li>Likes:
           <ul>
-            <li *ngFor="let like of animalDetail.likes; let i=index">{{like}}</li>
+            <li *ngFor="let like of animalDetail.likes">{{like}}</li>
           </ul>
         </li>
         <li>Dislikes:
           <ul>
-            <li *ngFor="let dislike of animalDetail.dislikes; let i=index">{{dislike}}</li>
+            <li *ngFor="let dislike of animalDetail.dislikes">{{dislike}}</li>
           </ul>
         </li>
         <li>Joined the Zoo on: {{animalDetail.created | date:mediumDate}}</li>
@@ -27,7 +27,7 @@ import { Animal } from './animal.model';
     </div>
 
     <div class="col-md-6">
-      <edit-animal *ngIf="showDetails" [editAnimal]="animalDetail" (updateItemSender)="updateAnimal($event)"></edit-animal>
+      <edit-animal *ngIf="showDetails" [editAnimal]="animalDetail" (updateItemSender)="updateAnimal($event)" (deleteItemSender)="updateAnimal($event)"></edit-animal>
       <button class="btn btn-danger" (click)="removeAnimal(animalIndex)">Remove</button>
     </div>
   `

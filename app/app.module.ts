@@ -6,6 +6,7 @@ import { ListAnimalsComponent } from './list-animals.component';
 import { AnimalDetailComponent } from './animal-detail.component'
 import { NewAnimalComponent } from './new-animal.component'
 import { EditAnimalComponent } from './edit-animal.component'
+import { ItemArrayComponent } from './item-array.component'
 import { SortPipe } from './sort.pipe'
 
 @NgModule({
@@ -16,6 +17,7 @@ import { SortPipe } from './sort.pipe'
     AnimalDetailComponent,
     NewAnimalComponent,
     EditAnimalComponent,
+    ItemArrayComponent,
     SortPipe
   ],
   bootstrap:    [ AppComponent ]

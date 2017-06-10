@@ -43,8 +43,14 @@ import { Animal } from './animal.model';
         <input #newLikes>
       </div>
       <div class="row">
-        <label class="col-md-2">Dislikes:</label>
-        <input #newDislikes>
+        <div class="row">
+          <label class="col-md-2">Dislikes:</label>
+        </div>
+        <div class="row dislikes">
+          <div class="col-md-2"></div>
+          <input #newDislike>
+          <button (click)="addItem(newDislike.value, 'dislikes')" class="btn std-btn">Add</button>
+        </div>
       </div>
       <button class="btn std-btn" (click)="
         createAnimal(
@@ -54,9 +60,7 @@ import { Animal } from './animal.model';
           newDiet.value,
           newLocation.value,
           newCaretakers.value,
-          newSex.value,
-          newLikes.value,
-          newDislikes.value
+          newSex.value
         );
         newSpecies.value='';
         newName.value='';
@@ -73,6 +77,8 @@ import { Animal } from './animal.model';
 
 export class NewAnimalComponent {
   @Output() newAnimalSender = new EventEmitter();
+  likes: string[] = [];
+  dislikes: string[] = [];
 
   createAnimal(
     species: string,
