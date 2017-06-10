@@ -58,7 +58,9 @@ import { Animal } from './animal.model';
           newDiet.value,
           newLocation.value,
           newCaretakers.value,
-          newSex.value
+          newSex.value,
+          likes,
+          dislikes
         );
         newSpecies.value='';
         newName.value='';
@@ -66,8 +68,6 @@ import { Animal } from './animal.model';
         newLocation.value='';
         newCaretakers.value='';
         newSex.value='';
-        newLikes.value='';
-        newDislikes.value='';
       ">Add New Animal</button>
     </div>
     <ul class="col-md-6">
@@ -100,10 +100,12 @@ export class NewAnimalComponent {
     location: string,
     caretakers: number,
     sex: string,
-    likes: string,
-    dislikes: string
+    likes: string[],
+    dislikes: string[]
   ){
-    var newAnimal: Animal = new Animal(species, name, age, diet, location, caretakers, sex, this.likes, this.dislikes);
+    var newAnimal: Animal = new Animal(species, name, age, diet, location, caretakers, sex, likes, dislikes);
+    this.likes = [''];
+    this.dislikes = [''];
     this.newAnimalSender.emit(newAnimal);
   }
 
