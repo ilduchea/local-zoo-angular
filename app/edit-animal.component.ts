@@ -38,12 +38,26 @@ import { Animal } from './animal.model';
         <input [(ngModel)]="editAnimal.sex">
       </div>
       <div class="row">
-        <label class="col-md-2">Likes:</label>
-        <input [(ngModel)]="editAnimal.likes">
+        <div class="row">
+          <label class="col-md-2">Likes:</label>
+        </div>
+        <div class="row" *ngFor="let like of editAnimal.likes; let i=index">
+          <div class="col-md-2"></div>
+          <input name="like{{i}}" #likeValue="ngModel" [ngModel]="like">
+          <button (click)="updateItem(likeValue.value, i, 'likes')" class="btn std-btn">Update</button>
+        </div>
+        <button (click)="addItem(editAnimal.likes)" class="btn std-btn">Add Like</button>
       </div>
       <div class="row">
-        <label class="col-md-2">Dislikes:</label>
-        <input [(ngModel)]="editAnimal.dislikes">
+        <div class="row">
+          <label class="col-md-2">Dislikes:</label>
+        </div>
+        <div class="row" *ngFor="let dislike of editAnimal.dislikes; let i=index">
+          <div class="col-md-2"></div>
+          <input name="dislike{{i}}" #dislikeValue="ngModel" [ngModel]="dislike">
+          <button (click)="updateItem(dislikeValue.value, i, 'dislikes')" class="btn std-btn">Update</button>
+        </div>
+        <button (click)="addItem(editAnimal.dislikes)" class="btn std-btn">Add Like</button>
       </div>
     </div>
     <button (click)="showEdit = !showEdit" class="btn std-btn">
@@ -56,5 +70,20 @@ import { Animal } from './animal.model';
 
 export class EditAnimalComponent {
   @Input() editAnimal: Animal;
+  @Output() updateItemSender = new EventEmitter();
+
+  addItem(array: string[]) {
+    array.push('');
+  }
+
+  updateItem(item: string, index: number, list: string) {
+    if (list === 'likes') {
+      this.editAnimal.likes.splice(index, 1, item);
+    }
+    if (list === 'dislikes') {
+      this.editAnimal.dislikes.splice(index, 1, item);
+    }
+    this.updateItemSender.emit(this.editAnimal);
+  }
 
 }

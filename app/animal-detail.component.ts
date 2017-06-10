@@ -12,14 +12,22 @@ import { Animal } from './animal.model';
         <li>Location: {{animalDetail.location}}</li>
         <li>Caretakers: {{animalDetail.caretakers}}</li>
         <li>Sex: {{animalDetail.sex}}</li>
-        <li>Likes: {{animalDetail.likes[0]}}</li>
-        <li>Dislikes: {{animalDetail.dislikes[0]}}</li>
+        <li>Likes:
+          <ul>
+            <li *ngFor="let like of animalDetail.likes; let i=index">{{like}}</li>
+          </ul>
+        </li>
+        <li>Dislikes:
+          <ul>
+            <li *ngFor="let dislike of animalDetail.dislikes; let i=index">{{dislike}}</li>
+          </ul>
+        </li>
         <li>Joined the Zoo on: {{animalDetail.created | date:mediumDate}}</li>
       </ul>
     </div>
 
     <div class="col-md-6">
-      <edit-animal *ngIf="showDetails" [editAnimal]="animalDetail"></edit-animal>
+      <edit-animal *ngIf="showDetails" [editAnimal]="animalDetail" (updateItemSender)="updateAnimal($event)"></edit-animal>
       <button class="btn btn-danger" (click)="removeAnimal(animalIndex)">Remove</button>
     </div>
   `
@@ -33,5 +41,11 @@ export class AnimalDetailComponent {
   removeAnimal(i: number) {
     this.removeAnimalSender.emit(i);
   }
+
+  updateAnimal(animal: Animal) {
+    this.animalDetail = animal;
+  }
+
+
 
 }

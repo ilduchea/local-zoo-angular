@@ -30,10 +30,10 @@
       * Sex - string
       * Likes - string
       * Dislikes - string
-    * Expansion
+    * Expansion/Future
       * Likes - as an array of strings
       * Dislikes - as an array of strings
-      * Created - timestamp
+      * Created - timestamp !implemented
   * Animal functions.
     * Base
       * Create
@@ -45,7 +45,7 @@
       * Find only mature animals
     * Expansion
       * Find the total number of caretakers need in a day
-      * Add a timestamp to record when the animal is added
+      * Add a timestamp to record when the animal is added !implemented
       * Add aditional search features
         * Species
         * Diet
